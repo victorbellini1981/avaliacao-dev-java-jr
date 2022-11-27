@@ -35,7 +35,7 @@ public class ProdutoController {
 	public ResponseEntity<Produto> criar(@RequestBody Produto produto){
 		
 		produto = produtoService.create(produto);
-		return ResponseEntity.status(HttpStatus.CREATED).header("location", request.getRequestURL() + produto.getId()).body(produto);
+		return ResponseEntity.status(HttpStatus.CREATED).header("location", request.getRequestURL().append(produto.getId()).toString()).body(produto);
 	}
 
 }
